@@ -1,0 +1,85 @@
+###############
+#  GITIGNORE  #
+###############
+
+###
+# GENERIC
+###
+
+*.diff
+*.err
+*.lock
+*.log
+*.orig
+*.pyc
+*.rej
+*.sass-cache
+*.sw?
+*.vi
+
+
+###
+# OS GENERATED
+###
+
+._*
+.DS_Store
+Thumbs.db
+
+
+###
+# DIRECTORIES
+###
+
+.bundle
+.env
+
+
+###
+# COMPILED
+###
+
+*.com
+*.class
+*.dll
+*.exe
+*.o
+*.so
+
+
+###
+# TEMPORARY
+###
+
+*.swp
+*.swo
+*~
+
+
+###
+# ARCHIVES
+###
+*.7z
+*.dmg
+*.gz
+*.iso
+*.jar
+*.rar
+*.tar
+*.zip
+
+
+###
+# LOGS & DATABASES
+###
+*.log
+*.sql
+*.sqlite
+
+
+###
+# EXTERNAL DISKS
+###
+
+.Spotlight-V100
+.Trashes
