@@ -1,0 +1,10 @@
+# Global Defaults
+prefix = /home/two-brain/.bin/npm
+loglevel = silent
+
+# Project Defaults
+init.author.name = S1SYPHOS
+init.author.email = hello@twobrain.io
+init.author.url = https://twobrain.io
+init.version = 0.0.1
+init.license = MIT
