@@ -1,1 +1,5 @@
+###################
+#  RC MANAGER RC  #
+###################
+
 EXCLUDES="README.md LICENSE"
