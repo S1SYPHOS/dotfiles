@@ -1,6 +1,7 @@
 # Global Defaults
 prefix = /home/two-brain/.bin/npm
 loglevel = silent
+package-lock = false
 
 # Project Defaults
 init.author.name = S1SYPHOS
