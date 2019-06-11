@@ -6,19 +6,11 @@
 export PATH="$HOME/.bin:$PATH";
 
 # Load shell dotfiles:
-for file in ~/.{aliases,bash_prompt,exports,functions}; do
+for file in ~/.{bash_aliases,bash_exports,bash_functions,bash_options,bash_prompt};
+do
     [ -r "$file" ] && [ -f "$file" ] && source "$file";
 done;
 unset file;
-
-# Case-insensitive globbing (used in pathname expansion)
-shopt -s nocaseglob;
-
-# Append to the Bash history file, rather than overwriting it
-shopt -s histappend;
-
-# Autocorrect typos in path names when using `cd`
-shopt -s cdspell;
 
 # Add tab completion for many Bash commands
 if [ -f /etc/bash_completion ]; then
