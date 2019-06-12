@@ -17,10 +17,16 @@ export HISTSIZE='32768';
 export HISTFILESIZE="${HISTSIZE}";
 
 # Ignore duplicate commands in the history
-export HISTCONTROL=ignoredups
+export HISTCONTROL=ignoredups;
 
 # Make Python use UTF-8 encoding for output to stdin, stdout, and stderr
 export PYTHONIOENCODING='UTF-8';
+
+# Change Python's user-installation directory
+export PYTHONUSERBASE='~/.bin/python';
+
+# Change Composer's global installation directory
+export COMPOSER_HOME='~/.bin/php';
 
 # Prefer US English and use UTF-8
 export LANG='en_US.UTF-8';
