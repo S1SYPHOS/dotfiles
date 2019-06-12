@@ -1,4 +1,4 @@
-#!/bin/sh
+#!/bin/bash
 #
 # Quick search in a directory for a string ($@).
 #
@@ -10,4 +10,3 @@ if [ -x /usr/bin/ack-grep ]; then
 else
     ack -i "$@"
 fi
-

@@ -59,6 +59,7 @@ Thumbs.db
 ###
 # ARCHIVES
 ###
+
 *.7z
 *.dmg
 *.gz
@@ -72,6 +73,7 @@ Thumbs.db
 ###
 # LOGS & DATABASES
 ###
+
 *.log
 *.sql
 *.sqlite
