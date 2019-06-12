@@ -33,8 +33,11 @@ alias w="cd ~/Documents/work"
 alias sudo="sudo "
 
 # Copy & Paste file contents from the command-line
-alias pbcopy='xclip -selection clipboard'
-alias pbpaste='xclip -selection clipboard -o'
+alias cpy='xclip -selection clipboard'
+alias pst='xclip -selection clipboard -o'
+
+# Copy public key to clipboard:
+alias pubkey="cpy ~/.ssh/id_rsa.pub | echo '=> Public key copied to pasteboard.'"
 
 # Show file statistics for current directory
 alias du="du -sh ./* | sort -hr"
