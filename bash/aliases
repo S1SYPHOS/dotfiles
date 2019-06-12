@@ -42,8 +42,12 @@ alias pubkey="cpy ~/.ssh/id_rsa.pub | echo '=> Public key copied to pasteboard.'
 # Show file statistics for current directory
 alias du="du -sh ./* | sort -hr"
 
-# Show avanced drive status
+# Human-readable disk usage
 alias df="df -Tha --total"
+
+# Show processes
+alias psa="ps auxf"
+alias psg="ps aux | grep -v grep | grep -i -e VSZ -e"
 
 
 ###
