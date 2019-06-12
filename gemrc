@@ -2,4 +2,4 @@
 :backtrace: false
 :benchmark: false
 :verbose: true
-gem: --user-install --no-document --bindir /home/two-brain/.bin/ruby
+gem: --user-install --no-document --bindir ~/.bin/ruby

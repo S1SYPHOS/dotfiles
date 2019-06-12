@@ -1,5 +1,5 @@
 # Global Defaults
-prefix = /home/two-brain/.bin/npm
+prefix = ~/.bin/npm
 loglevel = silent
 package-lock = false
 
