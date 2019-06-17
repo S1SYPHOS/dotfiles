@@ -1,3 +1,7 @@
+############
+#  NPM RC  #
+############
+
 # Global Defaults
 prefix = ~/.bin/npm
 loglevel = silent
