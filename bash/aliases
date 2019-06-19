@@ -14,13 +14,26 @@ alias ...="cd ../.."
 alias ....="cd ../../.."
 alias .....="cd ../../../.."
 
+# Listing files
+alias l='ls -CF'
+alias ll='ls -alF'
+alias la='ls -A'
+
+# Replace previous aliases in case `exa` is installed
+# See https://the.exa.website
+if command -v exa >/dev/null 2>&1; then
+    alias l="exa --git --color=automatic"
+    alias ls="exa --git --color=automatic"
+    alias ll="exa --all --long --git --color=automatic"
+    alias la="exa --all --binary --group --header --long --git --color=automatic"
+fi
+
 # Shortcuts
 alias b="firefox"
 alias c="clear"
 alias d="cd ~/Downloads"
 alias g="git"
 alias h="history"
-alias l="ls -lAh --group-directories-first --color"
 alias p="cd ~/Documents/projects"
 alias w="cd ~/Documents/work"
 
