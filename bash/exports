@@ -22,10 +22,10 @@ export HISTCONTROL=ignoredups;
 export PYTHONIOENCODING='UTF-8';
 
 # Change Python's user-installation directory
-export PYTHONUSERBASE='~/.bin/python';
+export PYTHONUSERBASE=~/.bin/python;
 
 # Change Composer's global installation directory
-export COMPOSER_HOME='~/.bin/php';
+export COMPOSER_HOME=~/.bin/php;
 
 # Prefer US English and use UTF-8
 export LANG='en_US.UTF-8';
