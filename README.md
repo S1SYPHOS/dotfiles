@@ -7,18 +7,23 @@ It's a work in progress, with many aliases left to chase ..
 
 ## Getting started
 
-Just install thoughtbot's [rc file manager](https://github.com/thoughtbot/rcm) (or `rcm`), which makes symlinking your dotfiles a breeze. All that's left to do is cloning the repo to `~/.dotfiles` and fire it up:
+Just install Anish Athalye's [`dotbot`](https://github.com/anishathalye/dotbot), which makes symlinking your dotfiles a breeze. All that's left to do is cloning the repo to `~/.dotfiles` and fire it up:
 
 ```shell
 # Clone the repository
-git clone https://github.com/S1SYPHOS/dotfiles.git ~/.dotfiles
+git clone --recursive https://github.com/S1SYPHOS/dotfiles.git ~/.dotfiles
 
 # Symlink all the things
-rcup
+cd ~/.dotfiles
+bash install.sh
+
+# Making an alias makes it even easier (like in 'src/bash/aliases')
+alias dotbot="bash ~/.dotfiles/install.sh"
 ```
 
+
 ## Roadmap:
-- [ ] Move to [dotbot](https://git.io/dotbot)
+- [x] Move to [dotbot](https://git.io/dotbot)
   - Ability to create folders, eg .ssh/sockets
   - Own folder setup for configs above `.config`
 - [ ] Add more dotfiles & configs (tmux, vim, aria2)
