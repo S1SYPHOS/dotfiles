@@ -18,8 +18,8 @@ rcup
 ```
 
 ## Roadmap:
-[ ] Move to [dotbot](https://git.io/dotbot)
+- [ ] Move to [dotbot](https://git.io/dotbot)
   - Ability to create folders, eg .ssh/sockets
   - Own folder setup for configs above `.config`
-[ ] Add more dotfiles & configs (tmux, vim, aria2)
-[ ] Add aliases for git-extra packages
+- [ ] Add more dotfiles & configs (tmux, vim, aria2)
+- [ ] Add aliases for git-extra packages
