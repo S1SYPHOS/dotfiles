@@ -16,3 +16,10 @@ git clone https://github.com/S1SYPHOS/dotfiles.git ~/.dotfiles
 # Symlink all the things
 rcup
 ```
+
+## Roadmap:
+[ ] Move to [dotbot](https://git.io/dotbot)
+  - Ability to create folders, eg .ssh/sockets
+  - Own folder setup for configs above `.config`
+[ ] Add more dotfiles & configs (tmux, vim, aria2)
+[ ] Add aliases for git-extra packages
