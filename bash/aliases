@@ -62,6 +62,9 @@ alias df="df -Tha --total"
 alias psa="ps auxf"
 alias psg="ps aux | grep -v grep | grep -i -e VSZ -e"
 
+# Show active IP addresses in home network
+alias ipnet="nmap -sn 192.168.178.0/24"
+
 
 ###
 # MISCELLANEOUS
