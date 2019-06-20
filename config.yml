@@ -1,0 +1,32 @@
+- defaults:
+    link:
+      create: true
+      relink: true
+
+- clean: ['~']
+
+- link:
+    ~/.bash: src/bash
+    ~/.bashrc: src/bashrc
+    ~/.bash_profile: src/bash_profile
+    ~/.bin/:
+      glob: true
+      path: src/bin/*
+    ~/.config/neofetch/config.conf: src/config/neofetch.conf
+    ~/.config/htop/htoprc: src/config/htoprc
+    ~/.config/keepassxc/keepassxc.ini: src/config/keepassxc.ini
+    ~/.config/pip/pip.conf: src/config/pip.conf
+    ~/.curlrc: src/curlrc
+    ~/.gemrc: src/gemrc
+    ~/.gitconfig: src/gitconfig
+    ~/.gitignore: src/gitignore
+    ~/.gnupg:
+      glob: true
+      path: src/gnupg/*
+    ~/.inputrc: src/inputrc
+    ~/.npmrc: src/npmrc
+    ~/.ssh/config: src/ssh/config
+    ~/.wgetrc: src/wgetrc
+
+- shell:
+  - [git submodule update --init --recursive, Installing submodules]
