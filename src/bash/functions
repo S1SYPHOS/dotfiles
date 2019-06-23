@@ -186,6 +186,14 @@ extract() {
     fi
 }
 
+# Update NPM Packages
+function npmup() {
+	for package in $(npm -g outdated --parseable --depth=0 | cut -d: -f4)
+	do
+		npm -g install "$package"
+	done
+}
+
 # Flip a coin
 coin() {
 	if [ $(( RANDOM % 10 + 1 )) -gt 5 ]; then
