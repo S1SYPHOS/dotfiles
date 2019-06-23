@@ -45,10 +45,10 @@ alias w="cd ~/Documents/work"
 # Allow aliases to be with sudo
 alias sudo="sudo "
 
-# Ask if really wanting to delete
-#   a) more than three files at once
-#   b) everything recursively
-alias rm='rm -I'
+# Ask if really, really sure to ..
+alias cp='cp -vi' # .. copy
+alias mv='mv -vi' # .. move
+alias rm='rm -vi' # .. burn
 
 # Copy & Paste file contents from the command-line
 alias cpy='xclip -selection clipboard'
@@ -57,11 +57,11 @@ alias pst='xclip -selection clipboard -o'
 # Copy public key to clipboard:
 alias pubkey="cpy ~/.ssh/id_rsa.pub | echo '=> Public key copied to pasteboard.'"
 
-# Show file statistics for current directory
-alias du="du -sh ./* | sort -hr"
-
-# Human-readable disk usage
-alias df="df -Tha --total"
+# Human-readable disk commands
+alias du='du -kh'
+alias df='df -kTh'
+alias dd='dd status=progress'
+alias free='free -h --giga'
 
 # Show processes
 alias psa="ps auxf"
