@@ -3,11 +3,12 @@
       create: true
       relink: true
 
-- clean: ['~']
+- clean: ['~', '~/.bin']
 
 - link:
     ~/.bash: src/bash
     ~/.bashrc: src/bashrc
+    ~/.bash_logout: src/bash_logout
     ~/.bash_profile: src/bash_profile
     ~/.bin/:
       glob: true
