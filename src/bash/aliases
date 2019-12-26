@@ -48,7 +48,7 @@ alias sudo="sudo "
 # Ask if really, really sure to ..
 alias cp='cp -vi' # .. copy
 alias mv='mv -vi' # .. move
-alias rm='rm -vi' # .. burn
+alias rm='rm -vI' # .. burn
 
 # Copy & Paste file contents from the command-line
 alias cpy='xclip -selection clipboard'
@@ -106,3 +106,32 @@ alias dotbot="bash ~/.dotfiles/install.sh"
 alias motherboard="dmidecode -t 2 | less"
 alias cpu="dmidecode -t 4 | less"
 alias memory="dmidecode -t 17 | less"
+alias cdrom="wodim --devices"
+
+
+###
+# PYTHON
+###
+
+# Loads virtualenvwrapper + sets aliases if installed
+if [ -f $PYTHONUSERBASE/bin/virtualenvwrapper.sh ]; then
+    source $PYTHONUSERBASE/bin/virtualenvwrapper.sh
+
+    # virtualenvwrapper aliases @bbengfort
+    # See https://gist.github.com/bbengfort/246bc820e76b48f71df7
+    alias venv="workon"
+    alias venv.exit="deactivate"
+    alias venv.ls="lsvirtualenv"
+    alias venv.show="showvirtualenv"
+    alias venv.init="mkvirtualenv"
+    alias venv.rm="rmvirtualenv"
+    alias venv.switch="workon"
+    alias venv.add="add2virtualenv"
+    alias venv.cd="cdproject"
+    alias venv.cdsp="cdsitepackages"
+    alias venv.cdenv="cdvirtualenv"
+    alias venv.lssp="lssitepackages"
+    alias venv.proj="mkproject"
+    alias venv.setproj="setvirtualenvproject"
+    alias venv.wipe="wipeenv"
+fi
