@@ -1,10 +1,20 @@
-#!/bin/bash
+#!/usr/bin/env bash
 
 ##############
 #  INPUT RC  #
 ##############
 
-# Make Tab autocomplete regardless of filename case
+## GENERAL OPTIONS ##
+
+# Allow UTF-8 input and output, instead of showing stuff like $'\0123\0456'
+set input-meta on
+set output-meta on
+set convert-meta off
+
+
+## SMARTER TAB-COMPLETION ##
+
+# Perform file completion regardless of filename case
 set completion-ignore-case on
 
 # List all matches in case multiple possible completions are possible
@@ -13,10 +23,12 @@ set show-all-if-ambiguous on
 # Immediately add a trailing slash when autocompleting symlinks to directories
 set mark-symlinked-directories on
 
-# Use the text that has already been typed as the prefix for searching through
-# commands (i.e. more intelligent Up/Down behavior)
-"\e[B": history-search-forward
-"\e[A": history-search-backward
+# Be more intelligent when autocompleting by also looking at the text after
+# the cursor. For example, when the current line is "cd ~/src/mozil", and
+# the cursor is on the "z", pressing Tab will not autocomplete it to "cd
+# ~/src/mozillail", but to "cd ~/src/mozilla". (This is supported by the
+# Readline used by Bash 4.)
+set skip-completed-text on
 
 # Do not autocomplete hidden files unless the pattern explicitly begins with a dot
 set match-hidden-files off
@@ -30,14 +42,59 @@ set completion-query-items 200
 # Show extra file information when completing, like `ls -F` does
 set visible-stats on
 
-# Be more intelligent when autocompleting by also looking at the text after
-# the cursor. For example, when the current line is "cd ~/src/mozil", and
-# the cursor is on the "z", pressing Tab will not autocomplete it to "cd
-# ~/src/mozillail", but to "cd ~/src/mozilla". (This is supported by the
-# Readline used by Bash 4.)
-set skip-completed-text on
 
-# Allow UTF-8 input and output, instead of showing stuff like $'\0123\0456'
-set input-meta on
-set output-meta on
-set convert-meta off
+## HISTORY BINDINGS ##
+
+# Enable incremental history search with up/down arrows (plus some readline goodness)
+# For more information, see http://codeinthehole.com/writing/the-most-important-command-line-tip-incremental-history-searching-with-inputrc/
+"\e[A": history-search-backward
+"\e[B": history-search-forward
+"\e[C": forward-char
+"\e[D": backward-char
+
+# TODO: Enable history expansion with space
+# bind Space:magic-space
+
+
+## TODO: CUSTOM KEYBINDINGS ##
+# For more information, see https://github.com/mrzool/bash-sensible/issues/18#issuecomment-305968527
+
+# RSI prevention (Alt lower-case letter):
+# "\ej" "-"       # <Alt-j> = hyphen
+# "\ek" "_"       # <Alt-k> = underscore
+# "\ef" "+"       # <Alt-f> = plus
+# "\ed" "="       # <Alt-d> = equals
+# "\eh" "~"       # <Alt-h> = tilda
+# "\em" "\n"      # <Alt-m> = return
+# "\es" "*"       # <Alt-s> = star
+# "\ew" "\\*"     # <Alt-w> = backslash-star
+
+# Shortcuts for common UNIX filters
+# "\eA" "$(!!) "                 # ALL the previous command
+# "\eC" "| column -t "
+# "\eD" "| uniq -d "             # show Duplicates
+# "\eE" "| uniq -c "             # Enumerate (count uniq)
+# "\eG" "| grep -i "
+# "\eH" "| head "
+# "\eL" "| nl -nrz -w4 -ba "     # Line numbers
+# "\eM" "| less\n"
+# "\eN" "| sort -n "
+# "\eP" "$(pwd) "
+# "\eR" "| rev "                 # Reverse lines
+# "\eS" "| sort -f "
+# "\eT" "| tac "                 # Reverse file
+# "\eU" "| uniq "                # Uniq-ify
+# "\eV" "| grep -v "
+# "\eW" "| wc -l\n"
+# "\eX" "| shuf "                # miX up
+# "\eZ" "| cat -s "
+# "\e0" "> /dev/null "
+
+
+## TODO: AUTO-CORRECT ##
+
+# For more information, see https://ao2.it/en/blog/2012/11/23/autoexpanding-aliases-readline-story-suod
+# "suod" "sudo"
+
+# For more information, see https://www.gnu.org/software/bash/manual/html_node/Readline-Init-File-Syntax.html
+##
