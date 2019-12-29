@@ -1,5 +1,3 @@
-#!/bin/bash
-
 #############
 #  ALIASES  #
 #############
@@ -32,6 +30,7 @@ fi
 alias b="firefox"
 alias c="clear"
 alias d="cd ~/Downloads"
+alias e="vim"
 alias g="git"
 alias h="history"
 alias p="cd ~/Documents/projects"
@@ -135,3 +134,6 @@ if [ -f $PYTHONUSERBASE/bin/virtualenvwrapper.sh ]; then
     alias venv.setproj="setvirtualenvproject"
     alias venv.wipe="wipeenv"
 fi
+
+
+alias 75='7z a -r -t7z -m0=lzma2 -mx=9 -myx=9 -mqs=on -ms=on'

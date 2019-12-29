@@ -17,7 +17,7 @@ git clone --recursive https://github.com/S1SYPHOS/dotfiles.git ~/.dotfiles
 cd ~/.dotfiles
 bash install.sh
 
-# Making an alias makes it even easier (like in 'src/bash/aliases')
+# Making an alias makes it even easier
 alias dotbot="bash ~/.dotfiles/install.sh"
 ```
 
@@ -27,4 +27,10 @@ alias dotbot="bash ~/.dotfiles/install.sh"
   - Ability to create folders, eg .ssh/sockets
   - Own folder setup for configs above `.config`
 - [ ] Add more dotfiles & configs (tmux, vim, aria2)
-- [ ] Add aliases for git-extra packages
+- [x] ~~Add aliases for git-extra packages~~
+
+## Credits
+I got a lot of inspiration from similar projects & incredibly useful resources all over the internet, just to name a few:
+- [bash-it](https://github.com/Bash-it/bash-it)
+- [sensible-bash](https://github.com/mrzool/bash-sensible)
+- .. several dotfile repositories hosted on Github, reallly

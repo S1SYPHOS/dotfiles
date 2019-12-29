@@ -5,7 +5,7 @@
 ####################
 
 # Create a new directory and enter it
-mkd() {
+mkcd() {
 	mkdir -p "$@"
 	cd "$@" || exit
 }
@@ -16,16 +16,17 @@ mkd() {
 myip() {
 	local record="A";
 
-	if [ "$@" == "6" ]; then
+	if [ "$*" == "6" ]; then
 		record="AAAA"
 	fi
 
-	dig @resolver1.opendns.com "$record" myip.opendns.com +short -"$@"
+	dig @resolver1.opendns.com "$record" myip.opendns.com +short -"$*"
 }
 
 # Create a data URL from a file
 dataurl() {
-	local mimeType=$(file -b --mime-type "$1");
+	local mimeType
+	mimeType=$(file -b --mime-type "$1")
 
 	if [[ $mimeType == text/* ]]; then
 		mimeType="${mimeType};charset=utf-8";
@@ -91,7 +92,6 @@ repo() {
 	[[ $base_url == *bitbucket* ]] && tree="src" || tree="tree"
 	url="$base_url/$tree/$branch$relative_path"
 
-
 	echo "Calling $(type xdg-open) for $url"
 
 	xdg-open "$url" &> /dev/null || (echo "Using $(type xdg-open) to open URL failed." && exit 1);
@@ -114,39 +114,6 @@ phpserver() {
 	php -S "localhost:${port}";
 }
 
-# Show all the names (CNs and SANs) listed in the SSL certificate for a given domain
-getcertnames() {
-	if [ -z "${1}" ]; then
-		echo "ERROR: No domain specified.";
-		return 1;
-	fi;
-
-	local domain="${1}";
-	echo "Testing ${domain}…";
-	echo ""; # newline
-
-	local tmp=$(echo -e "GET / HTTP/1.0\nEOT" \
-		| openssl s_client -connect "${domain}:443" -servername "${domain}" 2>&1);
-
-	if [[ "${tmp}" = *"-----BEGIN CERTIFICATE-----"* ]]; then
-		local certText=$(echo "${tmp}" \
-			| openssl x509 -text -certopt "no_aux, no_header, no_issuer, no_pubkey, \
-			no_serial, no_sigdump, no_signame, no_validity, no_version");
-		echo "Common Name:";
-		echo ""; # newline
-		echo "${certText}" | grep "Subject:" | sed -e "s/^.*CN=//" | sed -e "s/\/emailAddress=.*//";
-		echo ""; # newline
-		echo "Subject Alternative Name(s):";
-		echo ""; # newline
-		echo "${certText}" | grep -A 1 "Subject Alternative Name:" \
-			| sed -e "2s/DNS://g" -e "s/ //g" | tr "," "\n" | tail -n +2;
-		return 0;
-	else
-		echo "ERROR: Certificate not found.";
-		return 1;
-	fi;
-}
-
 # `extract` by Vitalii Tereshchuk - https://dotoca.net
 # See https://github.com/xvoland/Extract/blob/master/extract.sh
 extract() {
@@ -155,8 +122,7 @@ extract() {
         echo "Usage: extract <path/file_name>.<zip|rar|bz2|gz|tar|tbz2|tgz|Z|7z|xz|ex|tar.bz2|tar.gz|tar.xz>"
         echo "       extract <path/file_name_1.ext> [path/file_name_2.ext] [path/file_name_3.ext]"
     else
-        for n in "$@"
-        do
+        for n in "$@"; do
             if [ -f "$n" ] ; then
                 case "${n%,}" in
                     *.cbt|*.tar.bz2|*.tar.gz|*.tar.xz|*.tbz2|*.tgz|*.txz|*.tar)
@@ -188,8 +154,7 @@ extract() {
 
 # Update NPM Packages
 function npmup() {
-	for package in $(npm -g outdated --parseable --depth=0 | cut -d: -f4)
-	do
+	for package in $(npm -g outdated --parseable --depth=0 | cut -d: -f4); do
 		npm -g install "$package"
 	done
 }

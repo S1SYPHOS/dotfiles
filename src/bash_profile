@@ -4,25 +4,18 @@
 #  BASH PROFILE  #
 ##################
 
-# Add `~/.bin` to the `$PATH`
-export PATH="$HOME/.bin:$PATH";
+# System wide environment variables and startup programs should go into /etc/profile.
+# Personal environment variables and startup programs should go into ~/.bash_profile.
+# Personal aliases and functions should go into ~/.bashrc
 
-# Load shell dotfiles:
-for file in ~/.bash/*;
-do
-    [ -r "$file" ] && [ -f "$file" ] && source "$file";
-done;
-unset file;
+if [ -f "$HOME"/.bashrc ]; then
+    source ~/.bashrc
+fi
 
-# Add tab completion for many Bash commands
-if [ -f /etc/bash_completion ]; then
-    source /etc/bash_completion;
-fi;
+# Add `~/.bin` to `$PATH`
+if [ -d "$HOME/.bin" ]; then
+    export PATH="$HOME/.bin:$PATH";
+fi
 
-# Enable tab completion for `g` by marking it as an alias for `git`
-if type _git &> /dev/null; then
-    complete -o default -o nospace -F _git g;
-fi;
-
-# Add tab completion for SSH hostnames based on ~/.ssh/config, ignoring wildcards
-[ -e "$HOME/.ssh/config" ] && complete -o "default" -o "nospace" -W "$(grep "^Host" ~/.ssh/config | grep -v "[?*]" | cut -d " " -f2- | tr ' ' '\n')" scp sftp ssh;
+# For more information, see https://tiswww.case.edu/php/chet/bash/bashref.html#Bash-Startup-Files
+##
