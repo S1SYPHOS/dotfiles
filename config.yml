@@ -6,28 +6,28 @@
 - clean: ['~', '~/.bin']
 
 - link:
+    # XDG compliance (-)
     ~/.bash: src/bash
     ~/.bashrc: src/bashrc
     ~/.bash_logout: src/bash_logout
     ~/.bash_profile: src/bash_profile
-    ~/.bin/:
-      glob: true
-      path: src/bin/*
-    ~/.config/neofetch/config.conf: src/config/neofetch.conf
-    ~/.config/htop/htoprc: src/config/htoprc
-    ~/.config/keepassxc/keepassxc.ini: src/config/keepassxc.ini
-    ~/.config/pip/pip.conf: src/config/pip.conf
-    ~/.curlrc: src/curlrc
-    ~/.gemrc: src/gemrc
-    ~/.gitconfig: src/gitconfig
-    ~/.gitignore: src/gitignore
-    ~/.gnupg:
-      glob: true
-      path: src/gnupg/*
-    ~/.inputrc: src/inputrc
-    ~/.npmrc: src/npmrc
     ~/.ssh/config: src/ssh/config
     ~/.wgetrc: src/wgetrc
+
+    # XDG compliance (+)
+    ~/.local/etc/cURL/.curlrc: src/curlrc
+    ~/.local/etc/neofetch/config.conf: src/neofetch.conf
+    ~/.local/etc/gem/gemrc: src/gemrc
+    ~/.local/etc/git: src/git
+    ~/.local/etc/htop/htoprc: src/htoprc
+    ~/.local/etc/keepassxc/keepassxc.ini: src/keepassxc.ini
+    ~/.local/etc/npm/npmrc: src/npmrc
+    ~/.local/etc/pip/pip.conf: src/pip.conf
+    ~/.local/etc/gnupg: src/gnupg
+    ~/.local/etc/readline/inputrc: src/inputrc
+    ~/.local/lib/:
+      glob: true
+      path: src/scripts/*
 
 - shell:
   - [git submodule update --init --recursive, Installing submodules]

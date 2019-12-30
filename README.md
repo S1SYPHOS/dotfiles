@@ -29,8 +29,10 @@ alias dotbot="bash ~/.dotfiles/install.sh"
 - [ ] Add more dotfiles & configs (tmux, vim, aria2)
 - [x] ~~Add aliases for git-extra packages~~
 
+
 ## Credits
 I got a lot of inspiration from similar projects & incredibly useful resources all over the internet, just to name a few:
-- [bash-it](https://github.com/Bash-it/bash-it)
-- [sensible-bash](https://github.com/mrzool/bash-sensible)
+- [bash-it](https://github.com/Bash-it/bash-it) (aliases, functions)
+- [sensible-bash](https://github.com/mrzool/bash-sensible) (well, sane Bash defaults)
+- [Tinu Weber](https://github.com/ayekat/dotfiles) (mostly XDG compliance)
 - .. several dotfile repositories hosted on Github, reallly

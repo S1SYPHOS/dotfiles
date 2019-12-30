@@ -13,23 +13,32 @@
 [core]
 	editor = vim
 	whitespace = fix,-indent-with-non-tab,trailing-space,cr-at-eol
-    excludesfile = ~/.gitignore
-
-[core]
-    editor = vim
-
-[merge]
-    tool = /usr/bin/meld
+    excludesfile = ~/.local/etc/git/ignore
 
 [color]
     # Available options: normal, red, green, yellow, blue, magenta, cyan, white & black
     ui = auto
     interactive = auto
+    status = auto
+	diff = auto
+	branch = auto
+
+[commit]
+	verbose = true
+
+[push]
+	default = simple
+
+[pull]
+	ff = only
 
 [fetch]
     prune = true
 
 [rebase]
     autosquash = true
+
+[merge]
+	tool = vimdiff
 
 [alias]

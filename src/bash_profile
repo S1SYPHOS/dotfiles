@@ -8,13 +8,15 @@
 # Personal environment variables and startup programs should go into ~/.bash_profile.
 # Personal aliases and functions should go into ~/.bashrc
 
-if [ -f "$HOME"/.bashrc ]; then
-    source ~/.bashrc
+export PATH="/usr/local/bin:/usr/bin:/bin:/usr/local/sbin:/usr/sbin:/sbin"
+
+# Add `~/.local/lib` to `$PATH`
+if [ -d "$HOME/.local/lib" ]; then
+    export PATH="$HOME/.local/lib:$PATH";
 fi
 
-# Add `~/.bin` to `$PATH`
-if [ -d "$HOME/.bin" ]; then
-    export PATH="$HOME/.bin:$PATH";
+if [ -f "$HOME"/.bashrc ]; then
+    source ~/.bashrc
 fi
 
 # For more information, see https://tiswww.case.edu/php/chet/bash/bashref.html#Bash-Startup-Files

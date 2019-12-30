@@ -3,7 +3,8 @@
 ############
 
 # Global Defaults
-prefix = ~/.bin/npm
+prefix = ~/.local/lib/npm
+cache = ~/.local/var/cache/npm
 loglevel = silent
 package-lock = false
 
