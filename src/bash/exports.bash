@@ -43,9 +43,12 @@ export XDG_RUNTIME_DIR
 
 LOCAL_PATH=""
 
-# Bash history file
+# Bash / less history file
 mkdir -p "$XDG_STATE_HOME"/bash
 export HISTFILE=$XDG_STATE_HOME/bash/bash_history
+
+mkdir -p "$XDG_STATE_HOME"/less
+export LESSHISTFILE="$XDG_STATE_HOME"/less/less_history
 
 # cURL
 export CURL_HOME=$XDG_CONFIG_HOME/cURL;
@@ -75,29 +78,27 @@ export GEM_HOME=$XDG_DATA_HOME/gem
 export GEMRC=$XDG_CONFIG_HOME/gem/gemrc;
 export GEM_SPEC_CACHE=$XDG_CACHE_HOME/gem
 LOCAL_PATH="$XDG_LIB_HOME/ruby:$LOCAL_PATH"
-echo "$LOCAL_PATH"
-echo "$PATH"
 
+# Adding collected local paths to $PATH
 export PATH="$LOCAL_PATH$PATH"
 
 
 ## IMPROVED MANUAL PAGES ##
 
-# Don’t clear the screen after quitting a manual page.
-export MANPAGER="less -X"
 export LESS="--ignore-case --RAW-CONTROL-CHARS --no-init"
+export MANPAGER='less -s -M +Gg'
 
-mkdir -p "$XDG_STATE_HOME"/less
-export LESSHISTFILE="$XDG_STATE_HOME"/less/less_history
+# Needed for gnome-terminal
+export GROFF_NO_SGR="1"
 
-# TODO: Highlight section titles in manual pages
-# man() {
-# 	env \
-# 		LESS_TERMCAP_md=$'\e[1;36m' \
-# 		LESS_TERMCAP_me=$'\e[0m' \
-# 		LESS_TERMCAP_se=$'\e[0m' \
-# 		LESS_TERMCAP_so=$'\e[1;40' \
-# 		LESS_TERMCAP_ue=$'\e[0m' \
-# 		LESS_TERMCAP_us=$'\e[1;32m' \
-# 	    man "$@"
-# }
+man() {
+	env \
+        LESS_TERMCAP_mb=$'\e[1;31m' \
+        LESS_TERMCAP_md=$'\e[1;36m' \
+        LESS_TERMCAP_so=$'\e[01;44;37m' \
+        LESS_TERMCAP_us=$'\e[01;37m' \
+        LESS_TERMCAP_me=$'\e[0m' \
+        LESS_TERMCAP_se=$'\e[0m' \
+        LESS_TERMCAP_ue=$'\e[0m' \
+	    man "$@"
+}
