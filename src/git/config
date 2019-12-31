@@ -15,6 +15,9 @@
 	whitespace = fix,-indent-with-non-tab,trailing-space,cr-at-eol
     excludesfile = ~/.local/etc/git/ignore
 
+[include]
+    path = ~/.local/etc/git/aliases
+
 [color]
     # Available options: normal, red, green, yellow, blue, magenta, cyan, white & black
     ui = auto
@@ -40,5 +43,3 @@
 
 [merge]
 	tool = vimdiff
-
-[alias]

@@ -15,7 +15,7 @@
     ~/.wgetrc: src/wgetrc
 
     # XDG compliance (+)
-    ~/.local/etc/cURL/.curlrc: src/curlrc
+    ~/.local/etc/cURL/curlrc: src/curlrc
     ~/.local/etc/neofetch/config.conf: src/neofetch.conf
     ~/.local/etc/gem/gemrc: src/gemrc
     ~/.local/etc/git: src/git
