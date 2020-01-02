@@ -11,11 +11,12 @@ alias ..="cd .."
 alias ...="cd ../.."
 alias ....="cd ../../.."
 alias .....="cd ../../../.."
+alias cd..="cd .."
 
 # Listing files
-alias l='ls -CF'
-alias ll='ls -alF'
-alias la='ls -A'
+alias l="ls -CF"
+alias ll="ls -alF"
+alias la="ls -A"
 
 # Replace previous aliases in case `exa` is installed
 # See https://the.exa.website
@@ -30,11 +31,11 @@ fi
 alias b="firefox"
 alias c="clear"
 alias d="cd ~/Downloads"
-alias e="vim"
 alias g="git"
 alias h="history"
 alias p="cd ~/Documents/projects"
 alias w="cd ~/Documents/work"
+alias :q="exit"
 
 
 ###
@@ -45,22 +46,15 @@ alias w="cd ~/Documents/work"
 alias sudo="sudo "
 
 # Ask if really, really sure to ..
-alias cp='cp -vi' # .. copy
-alias mv='mv -vi' # .. move
-alias rm='rm -vI' # .. burn
-
-# Copy & Paste file contents from the command-line
-alias cpy='xclip -selection clipboard'
-alias pst='xclip -selection clipboard -o'
-
-# Copy public key to clipboard:
-alias pubkey="cpy ~/.ssh/id_rsa.pub | echo '=> Public key copied to pasteboard.'"
+alias cp="cp -vi" # .. copy
+alias mv="mv -vi" # .. move
+alias rm="rm -vI" # .. burn
 
 # Human-readable disk commands
-alias du='du -kh'
-alias df='df -kTh'
-alias dd='dd status=progress'
-alias free='free -h --giga'
+alias du="du -kh"
+alias df="df -kTh"
+alias dd="dd status=progress"
+alias free="free -h --giga"
 
 # Show processes
 alias psa="ps auxf"
@@ -74,7 +68,7 @@ alias ipnet="nmap -sn 192.168.178.0/24"
 # MISCELLANEOUS
 ###
 
-# Lock the screen (when going AFK) - For locking the screen, use 'SUPER+L'
+# Lock the screen (when going AFK) - For locking the screen, use "SUPER+L"
 alias afk="sudo systemctl suspend"
 
 # Print each PATH entry on a separate line
@@ -83,9 +77,6 @@ alias path='echo -e ${PATH//:/\\n}'
 # Thinking of http://xkcd.com/530/ - Linux version @mathiasbynensalias
 alias stfu="amixer -q sset Master 0%"
 alias pumpitup="amixer -q sset Master 100%"
-
-# List ten most popular commands
-alias popular="history | awk '{CMD[\$2]++;count++;}END { for (a in CMD)print CMD[a] \" \" CMD[a]/count*100 \"% \" a;}' | grep -v \"./\" | column -c3 -s \" \" -t | sort -nr | nl |  head -n10"
 
 
 ###
@@ -108,32 +99,13 @@ alias memory="dmidecode -t 17 | less"
 alias cdrom="wodim --devices"
 
 
-###
-# PYTHON
-###
-
-# Loads virtualenvwrapper + sets aliases if installed
-if [ -f $PYTHONUSERBASE/bin/virtualenvwrapper.sh ]; then
-    source $PYTHONUSERBASE/bin/virtualenvwrapper.sh
-
-    # virtualenvwrapper aliases @bbengfort
-    # See https://gist.github.com/bbengfort/246bc820e76b48f71df7
-    alias venv="workon"
-    alias venv.exit="deactivate"
-    alias venv.ls="lsvirtualenv"
-    alias venv.show="showvirtualenv"
-    alias venv.init="mkvirtualenv"
-    alias venv.rm="rmvirtualenv"
-    alias venv.switch="workon"
-    alias venv.add="add2virtualenv"
-    alias venv.cd="cdproject"
-    alias venv.cdsp="cdsitepackages"
-    alias venv.cdenv="cdvirtualenv"
-    alias venv.lssp="lssitepackages"
-    alias venv.proj="mkproject"
-    alias venv.setproj="setvirtualenvproject"
-    alias venv.wipe="wipeenv"
-fi
+alias 75="7z a -r -t7z -m0=lzma2 -mx=9 -myx=9 -mqs=on -ms=on"
 
 
-alias 75='7z a -r -t7z -m0=lzma2 -mx=9 -myx=9 -mqs=on -ms=on'
+## LOAD APP-SPECIFIC ALIASES ##
+
+for ALIAS in "$HOME"/.bash/aliases/*.bash; do
+    [ -r "$ALIAS" ] && [ -f "$ALIAS" ] && source "$ALIAS";
+done
+
+unset ALIAS

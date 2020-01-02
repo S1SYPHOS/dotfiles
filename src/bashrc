@@ -9,8 +9,8 @@
 # Personal aliases and functions should go into ~/.bashrc
 
 # Load shell dotfiles
-for file in "$HOME"/.bash/*.bash "$HOME"/.bash/{aliases,completions,functions}/*.bash; do
-    [ -r "$file" ] && [ -f "$file" ] && source "$file";
+for FILE in "$HOME"/.bash/*.bash "$HOME"/.bash/{completions,functions}/*.bash; do
+    [ -r "$FILE" ] && [ -f "$FILE" ] && source "$FILE";
 done
 
-unset file
+unset FILE
