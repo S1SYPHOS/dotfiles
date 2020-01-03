@@ -3,7 +3,13 @@
       create: true
       relink: true
 
-- clean: ['~', '~/.bin']
+- clean: ['~', '~/.local/bin']
+
+- clean:
+    ~/:
+      force: true
+    ~/.local/etc:
+      recursive: true
 
 - link:
     # XDG compliance (-)
