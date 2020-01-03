@@ -24,6 +24,7 @@
     ~/.local/etc/pip/pip.conf: src/pip.conf
     ~/.local/etc/gnupg: src/gnupg
     ~/.local/etc/readline/inputrc: src/inputrc
+    ~/.local/etc/tmux/tmux.conf: src/tmux.conf
     ~/.local/etc/wget/wgetrc: src/wgetrc
 
     # Local binary files & scripts
