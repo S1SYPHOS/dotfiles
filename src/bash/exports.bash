@@ -52,6 +52,8 @@ export GNUPGHOME=$XDG_CONFIG_HOME/gnupg
 # Readline settings & bindings
 export INPUTRC=$XDG_CONFIG_HOME/readline/inputrc
 
+export WGETRC=$XDG_CONFIG_HOME/wget/wgetrc
+
 # Python
 export PYTHONUSERBASE=$XDG_LIB_HOME/python;
 LOCAL_PATH="$XDG_LIB_HOME/python/bin:$LOCAL_PATH"
