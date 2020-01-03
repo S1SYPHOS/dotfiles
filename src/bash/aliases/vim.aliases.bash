@@ -4,7 +4,10 @@ VIM=$(command -v vim)
 GVIM=$(command -v gvim)
 MVIM=$(command -v mvim)
 
-[[ -n $VIM ]] && alias e='$VIM'
+if [[ -n $VIM ]]; then
+    alias e='$VIM'
+    export VIMINIT='let $MYVIMRC="$XDG_CONFIG_HOME/vim/vimrc" | source $MYVIMRC'
+fi
 
 # Open vim in new tab
 # See http://stackoverflow.com/questions/936501/let-gvim-always-run-a-single-instance

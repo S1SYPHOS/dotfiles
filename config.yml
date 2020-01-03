@@ -31,6 +31,7 @@
     ~/.local/etc/gnupg: src/gnupg
     ~/.local/etc/readline/inputrc: src/inputrc
     ~/.local/etc/tmux/tmux.conf: src/tmux.conf
+    ~/.local/etc/vim/vimrc: src/vimrc
     ~/.local/etc/wget/wgetrc: src/wgetrc
 
     # Local binary files & scripts
