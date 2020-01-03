@@ -1,0 +1,26 @@
+##################
+#  EDITORCONFIG  #
+##################
+
+# One to rule them all
+root = true
+
+[*]
+charset = utf-8
+end_of_line = lf
+insert_final_newline = true
+trim_trailing_whitespace = true
+
+# YAML - http://yaml.org
+[*.yml]
+indent_style = space
+indent_size = 2
+
+# Bash - https://www.gnu.org/software/bash/manual/bash.html
+[*.bash]
+indent_style = space
+indent_size = 4
+
+# For more information,
+# see http://editorconfig.org & https://github.com/editorconfig
+##
