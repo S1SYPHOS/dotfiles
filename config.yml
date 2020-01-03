@@ -25,9 +25,11 @@
     ~/.local/etc/gnupg: src/gnupg
     ~/.local/etc/readline/inputrc: src/inputrc
     ~/.local/etc/wget/wgetrc: src/wgetrc
-    ~/.local/lib/:
+
+    # Local binary files & scripts
+    ~/.local/bin/:
       glob: true
-      path: src/scripts/*
+      path: src/bin/*
 
 - shell:
   - [git submodule update --init --recursive, Installing submodules]

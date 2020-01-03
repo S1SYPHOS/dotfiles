@@ -8,6 +8,11 @@
 # Personal environment variables and startup programs should go into ~/.bash_profile.
 # Personal aliases and functions should go into ~/.bashrc
 
+# Add `~/.local/lib` to `$PATH`
+if [ -d "$HOME/.local/bin" ]; then
+    export PATH="$HOME/.local/bin:$PATH";
+fi
+
 # Load shell dotfiles
 for FILE in "$HOME"/.bash/*.bash "$HOME"/.bash/{completions,functions}/*.bash; do
     [ -r "$FILE" ] && [ -f "$FILE" ] && source "$FILE";

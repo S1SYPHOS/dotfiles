@@ -20,11 +20,6 @@ export EDITOR="vim" VISUAL="vim"
 ## PATH ##
 export PATH="/usr/local/bin:/usr/bin:/bin:/usr/local/sbin:/usr/sbin:/sbin"
 
-# Add `~/.local/lib` to `$PATH`
-if [ -d "$HOME/.local/lib" ]; then
-    export PATH="$HOME/.local/lib:$PATH";
-fi
-
 if [ -f "$HOME"/.bashrc ]; then
     source ~/.bashrc
 fi
