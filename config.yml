@@ -26,6 +26,7 @@
     ~/.local/etc/git: src/git
     ~/.local/etc/htop/htoprc: src/htoprc
     ~/.local/etc/keepassxc/keepassxc.ini: src/keepassxc.ini
+    ~/.local/etc/kitty/kitty.conf: src/kitty.conf
     ~/.local/etc/npm/npmrc: src/npmrc
     ~/.local/etc/pip/pip.conf: src/pip.conf
     ~/.local/etc/gnupg: src/gnupg
