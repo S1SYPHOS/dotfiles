@@ -24,15 +24,15 @@ alias dotbot="bash ~/.dotfiles/install.sh"
 
 ## Roadmap:
 - [x] Move to [dotbot](https://git.io/dotbot)
-  - Ability to create folders, eg .ssh/sockets
-  - Own folder setup for configs above `.config`
-- [ ] Add more dotfiles & configs (tmux, vim, aria2)
+- [x] Add more dotfiles & configs (tmux, vim)
 - [x] ~~Add aliases for git-extra packages~~
+- [ ] move to i3/sway
 
 
 ## Credits
 I got a lot of inspiration from similar projects & incredibly useful resources all over the internet, just to name a few:
 - [bash-it](https://github.com/Bash-it/bash-it) (aliases, functions)
 - [sensible-bash](https://github.com/mrzool/bash-sensible) (well, sane Bash defaults)
-- [Tinu Weber](https://github.com/ayekat/dotfiles) (mostly XDG compliance)
-- .. several dotfile repositories hosted on Github, reallly
+- [Tinu Weber](https://github.com/ayekat/dotfiles), [Terencio Agozzino](https://github.com/rememberYou/dotfiles) and others caring about XDG compliance
+- [Emmanuel Rouat](https://tldp.org/LDP/abs/html/sample-bashrc.html) (`.bashrc` resources)
+- .. several dotfile repositories hosted on Github and elsewhere .. I mean, they are [meant to be forked](https://zachholman.com/2010/08/dotfiles-are-meant-to-be-forked), right?

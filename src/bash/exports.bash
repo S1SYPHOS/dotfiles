@@ -1,4 +1,4 @@
-#!/bin/bash
+#!/usr/bin/env bash
 
 ##################
 #  BASH EXPORTS  #
@@ -12,14 +12,20 @@ export PYTHONIOENCODING="UTF-8"
 
 ## XDG DIRECORY SETUP ##
 
-XDG_HOME=$HOME/.local
-export XDG_CACHE_HOME=$XDG_HOME/var/cache
-export XDG_CONFIG_HOME=$XDG_HOME/etc
-export XDG_DATA_HOME=$XDG_HOME/share
-export XDG_STATE_HOME=$XDG_HOME/var/lib
-export XDG_LIB_HOME=$XDG_HOME/lib
-export XDG_LOG_HOME=$XDG_HOME/var/log
+XDG_LOCAL=$HOME/.local
 
+# Standard
+export XDG_CACHE_HOME=$HOME/.cache      # user-specific non-essential (cached) data
+export XDG_CONFIG_HOME=$HOME/.config    # user-specific configuration files
+export XDG_DATA_HOME=$XDG_LOCAL/share   # user-specific data files
+
+# Non-standard
+export XDG_BIN_HOME=$XDG_LOCAL/bin
+export XDG_LIB_HOME=$XDG_LOCAL/lib
+
+unset XDG_LOCAL
+
+# user-specific runtime files and other file objects
 if [ ! -w "${XDG_RUNTIME_DIR:="/run/user/$UID"}" ]; then
     echo "\$XDG_RUNTIME_DIR ($XDG_RUNTIME_DIR) not writable. Setting to /tmp." >&2
     XDG_RUNTIME_DIR=/tmp
@@ -37,11 +43,11 @@ export XDG_RUNTIME_DIR
 LOCAL_PATH=""
 
 # Bash / less history file
-mkdir -p "$XDG_STATE_HOME"/bash
-export HISTFILE=$XDG_STATE_HOME/bash/bash_history
+mkdir -p "$XDG_DATA_HOME"/bash
+export HISTFILE=$XDG_DATA_HOME/bash/bash_history
 
-mkdir -p "$XDG_STATE_HOME"/less
-export LESSHISTFILE="$XDG_STATE_HOME"/less/less_history
+mkdir -p "$XDG_DATA_HOME"/less
+export LESSHISTFILE="$XDG_DATA_HOME"/less/less_history
 
 # cURL
 export CURL_HOME=$XDG_CONFIG_HOME/cURL;
@@ -52,6 +58,7 @@ export GNUPGHOME=$XDG_CONFIG_HOME/gnupg
 # Readline settings & bindings
 export INPUTRC=$XDG_CONFIG_HOME/readline/inputrc
 
+# GNU Wget
 export WGETRC=$XDG_CONFIG_HOME/wget/wgetrc
 
 # Python
@@ -76,7 +83,7 @@ LOCAL_PATH="$XDG_LIB_HOME/ruby:$LOCAL_PATH"
 
 # Adding collected local paths to $PATH
 export PATH="$LOCAL_PATH$PATH"
-
+unset LOCAL_PATH
 
 ## IMPROVED MANUAL PAGES ##
 

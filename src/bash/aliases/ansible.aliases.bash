@@ -2,7 +2,7 @@
 
 if command -v ansible >/dev/null 2>&1; then
     alias ans="ansible"
-    alias ap="ansible-playbook"
+    alias ansp="ansible-playbook"
 fi
 
 # For more information,

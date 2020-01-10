@@ -5,25 +5,28 @@
 ###
 
 if command -v podman >/dev/null 2>&1; then
+    # Beat it
+    alias docker="podman"
+
     alias pk="podman"
-    alias pklc="podman ps -l"  # List last Docker container
-    alias pklcid="podman ps -l -q"  # List last Docker container ID
-    alias pklcip='podman inspect -f "{{.NetworkSettings.IPAddress}}" $(podman ps -l -q)'  # Get IP of last Docker container
-    alias pkps="podman ps"  # List running Docker containers
-    alias pkpsa="podman ps -a"  # List all Docker containers
-    alias pki="podman images"  # List Docker images
-    alias pkrmac='podman rm $(podman ps -a -q)'  # Delete all Docker containers
+    alias pklc="podman ps -l"  # List last Podman container
+    alias pklcid="podman ps -l -q"  # List last Podman container ID
+    alias pklcip='podman inspect -f "{{.NetworkSettings.IPAddress}}" $(podman ps -l -q)'  # Get IP of last Podman container
+    alias pkps="podman ps"  # List running Podman containers
+    alias pkpsa="podman ps -a"  # List all Podman containers
+    alias pki="podman images"  # List Podman images
+    alias pkrmac='podman rm $(podman ps -a -q)'  # Delete all Podman containers
 
     case $OSTYPE in
       darwin*|*bsd*|*BSD*)
-        alias pkrmui="podman images -q -f dangling=true | xargs podman rmi"  # Delete all untagged Docker images
+        alias pkrmui="podman images -q -f dangling=true | xargs podman rmi"  # Delete all untagged Podman images
         ;;
       *)
-        alias pkrmui="podman images -q -f dangling=true | xargs -r podman rmi"  # Delete all untagged Docker images
+        alias pkrmui="podman images -q -f dangling=true | xargs -r podman rmi"  # Delete all untagged Podman images
         ;;
     esac
 
-    alias pkelc='podman exec -it $(pklcid) bash --login' # Enter last container (works with Docker 1.3 and above)
+    alias pkelc='podman exec -it $(pklcid) bash --login' # Enter last container (works with Podman 1.3 and above)
     alias pkrmflast='podman rm -f $(pklcid)'
     alias pkbash="pkelc"
     alias pkex="podman exec -it " # Useful to run any commands into container without leaving host

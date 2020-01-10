@@ -1,10 +1,10 @@
-#############
-#  ALIASES  #
-#############
+#!/usr/bin/env bash
 
-###
-# NAVIGATION
-###
+##################
+#  BASH ALIASES  #
+##################
+
+## NAVIGATION ##
 
 # many dots, so levels, wow
 alias ..="cd .."
@@ -20,7 +20,7 @@ alias la="ls -A"
 
 # Replace previous aliases in case `exa` is installed
 # See https://the.exa.website
-if command -v exa >/dev/null 2>&1; then
+if type exa >/dev/null 2>&1; then
     alias l="exa --git --color=automatic"
     alias ls="exa --git --color=automatic"
     alias ll="exa --all --long --git --color=automatic"
@@ -38,9 +38,7 @@ alias w="cd ~/Documents/work"
 alias :q="exit"
 
 
-###
-# BASICS
-###
+## BASICS ##
 
 # Allow aliases to be with sudo
 alias sudo="sudo "
@@ -61,12 +59,16 @@ alias psa="ps auxf"
 alias psg="ps aux | grep -v grep | grep -i -e VSZ -e"
 
 # Show active IP addresses in home network
-alias ipnet="nmap -sn 192.168.178.0/24"
+alias ipnet="nmap -sn 192.168.178.*"
+
+# Show active internet connections
+alias connections="netstat -pan --inet"
+
+# Quick ranking filter
+alias rank="sort | uniq -c | sort -n"
 
 
-###
-# MISCELLANEOUS
-###
+## MISCELLANEOUS ##
 
 # Lock the screen (when going AFK) - For locking the screen, use "SUPER+L"
 alias afk="sudo systemctl suspend"
@@ -74,35 +76,29 @@ alias afk="sudo systemctl suspend"
 # Print each PATH entry on a separate line
 alias path='echo -e ${PATH//:/\\n}'
 
-# Thinking of http://xkcd.com/530/ - Linux version @mathiasbynensalias
+# Thinking of http://xkcd.com/530/ - Linux version @mathiasbynens alias
 alias stfu="amixer -q sset Master 0%"
 alias pumpitup="amixer -q sset Master 100%"
 
 
-###
-# SOFTWARE
-###
+## SOFTWARE ##
 
-alias bi="buildah images"
-alias bc="buildah containers"
 alias etcher="balena-etcher-electron"
 alias dotbot="bash ~/.dotfiles/install.sh"
 
 
-###
-# HARDWARE
-###
+## HARDWARE ##
 
 alias motherboard="dmidecode -t 2 | less"
 alias cpu="dmidecode -t 4 | less"
 alias memory="dmidecode -t 17 | less"
 alias cdrom="wodim --devices"
 
+# TODO: mktar, mkzip, ..
+alias mk7z="7z a -r -t7z -m0=lzma2 -mx=9 -myx=9 -mqs=on -ms=on"
 
-alias 75="7z a -r -t7z -m0=lzma2 -mx=9 -myx=9 -mqs=on -ms=on"
 
-
-## LOAD APP-SPECIFIC ALIASES ##
+## LOAD CUSTOM ALIASES ##
 
 for ALIAS in "$HOME"/.bash/aliases/*.bash; do
     [ -r "$ALIAS" ] && [ -f "$ALIAS" ] && source "$ALIAS";
