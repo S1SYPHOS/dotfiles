@@ -3,12 +3,12 @@
       create: true
       relink: true
 
-- clean: ['~', '~/.local/bin']
+- clean: ['~', '.config', '~/.local/bin']
 
 - clean:
     ~/:
       force: true
-    ~/.local/etc:
+    ~/.config:
       recursive: true
 
 - link:
@@ -17,28 +17,36 @@
     ~/.bashrc: src/bashrc
     ~/.bash_logout: src/bash_logout
     ~/.bash_profile: src/bash_profile
+    ~/.mozilla/firefox/profiles.ini: src/firefox/profiles.ini
+    ~/.mozilla/firefox/two-brain/user.js: src/firefox/user.js
+
     ~/.ssh/config: src/ssh/config
 
     # XDG compliance (+)
-    ~/.local/etc/cURL/curlrc: src/curlrc
-    ~/.local/etc/neofetch/config.conf: src/neofetch.conf
-    ~/.local/etc/gem/gemrc: src/gemrc
-    ~/.local/etc/git: src/git
-    ~/.local/etc/htop/htoprc: src/htoprc
-    ~/.local/etc/keepassxc/keepassxc.ini: src/keepassxc.ini
-    ~/.local/etc/kitty/kitty.conf: src/kitty.conf
-    ~/.local/etc/npm/npmrc: src/npmrc
-    ~/.local/etc/pip/pip.conf: src/pip.conf
-    ~/.local/etc/gnupg: src/gnupg
-    ~/.local/etc/readline/inputrc: src/inputrc
-    ~/.local/etc/tmux/tmux.conf: src/tmux.conf
-    ~/.local/etc/vim/vimrc: src/vimrc
-    ~/.local/etc/wget/wgetrc: src/wgetrc
+    ~/.config/cURL/curlrc: src/curlrc
+    ~/.config/neofetch/config.conf: src/neofetch.conf
+    ~/.config/gem/gemrc: src/gemrc
+    ~/.config/git: src/git
+    ~/.config/htop/htoprc: src/htoprc
+    ~/.config/keepassxc/keepassxc.ini: src/keepassxc.ini
+    ~/.config/kitty/kitty.conf: src/kitty.conf
+    ~/.config/npm/npmrc: src/npmrc
+    ~/.config/pip/pip.conf: src/pip.conf
+    ~/.config/gnupg: src/gnupg
+    ~/.config/readline/inputrc: src/inputrc
+    ~/.config/sway/config: src/sway
+    ~/.config/tmux/tmux.conf: src/tmux.conf
+    ~/.config/VSCodium/User/settings.json: src/vscodium.json
+    ~/.config/vim/vimrc: src/vimrc
+    ~/.config/wget/wgetrc: src/wgetrc
 
     # Local binary files & scripts
     ~/.local/bin/:
       glob: true
       path: src/bin/*
+
+    # Themes
+    ~/.local/share/gedit/styles/nord.xml: src/themes/gedit.xml
 
 - shell:
   - [git submodule update --init --recursive, Installing submodules]

@@ -4,7 +4,7 @@
 
 # Global Defaults
 prefix = ~/.local/lib/npm
-cache = ~/.local/var/cache/npm
+cache = ~/.cache/npm
 loglevel = silent
 package-lock = false
 
