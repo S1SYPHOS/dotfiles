@@ -3,8 +3,8 @@
 ############
 
 # Global Defaults
-prefix = ~/.local/lib/npm
-cache = ~/.cache/npm
+prefix = /home/two-brain/.local/lib/npm
+cache = /home/two-brain/.cache/npm
 loglevel = silent
 package-lock = false
 

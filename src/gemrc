@@ -6,4 +6,4 @@
 :backtrace: false
 :benchmark: false
 :verbose: true
-gem: --user-install --no-document --bindir ~/.local/lib/ruby
+gem: --user-install --no-document --bindir /home/two-brain/.local/lib/ruby
