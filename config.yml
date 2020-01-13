@@ -24,6 +24,7 @@
     ~/.ssh/config: src/ssh/config
 
     # XDG compliance (+)
+    ~/.config/aria2/aria2.conf: src/aria2.conf
     ~/.config/cURL/curlrc: src/curlrc
     ~/.config/neofetch/config.conf: src/neofetch.conf
     ~/.config/gem/gemrc: src/gemrc
@@ -35,7 +36,6 @@
     ~/.config/pip/pip.conf: src/pip.conf
     ~/.config/gnupg: src/gnupg
     ~/.config/readline/inputrc: src/inputrc
-    ~/.config/sway/config: src/sway
     ~/.config/tmux/tmux.conf: src/tmux.conf
     ~/.config/VSCodium/User/settings.json: src/vscodium.json
     ~/.config/vim/vimrc: src/vimrc
