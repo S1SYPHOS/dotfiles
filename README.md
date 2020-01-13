@@ -35,4 +35,4 @@ I got a lot of inspiration from similar projects & incredibly useful resources a
 - [sensible-bash](https://github.com/mrzool/bash-sensible) (well, sane Bash defaults)
 - [Tinu Weber](https://github.com/ayekat/dotfiles), [Terencio Agozzino](https://github.com/rememberYou/dotfiles) and others caring about XDG compliance
 - [Emmanuel Rouat](https://tldp.org/LDP/abs/html/sample-bashrc.html) (`.bashrc` resources)
-- .. several dotfile repositories hosted on Github and elsewhere .. I mean, they are [meant to be forked](https://zachholman.com/2010/08/dotfiles-are-meant-to-be-forked), right?
+- .. several dotfile repositories hosted on Github and elsewhere .. some even believe, they are [meant to be forked](https://zachholman.com/2010/08/dotfiles-are-meant-to-be-forked) - but [what if they're not](https://www.anishathalye.com/2014/08/03/managing-your-dotfiles/)?
