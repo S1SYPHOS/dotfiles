@@ -35,9 +35,15 @@
     ~/.config/pip/pip.conf: src/pip.conf
     ~/.config/gnupg: src/gnupg
     ~/.config/readline/inputrc: src/inputrc
+<<<<<<< HEAD
+=======
+    ~/.config/rofi/config: src/rofi
+    ~/.config/sway/config: src/sway
+>>>>>>> Basic setup
     ~/.config/tmux/tmux.conf: src/tmux.conf
     ~/.config/VSCodium/User/settings.json: src/vscodium.json
     ~/.config/vim/vimrc: src/vimrc
+    ~/.config/waybar: src/waybar
     ~/.config/wget/wgetrc: src/wgetrc
     ~/.config/zathura/zathurarc: src/zathurarc
 
@@ -48,6 +54,7 @@
 
     # Themes
     ~/.local/share/gedit/styles/nord.xml: src/themes/gedit.xml
+    ~/.local/share/rofi/themes/nord.rasi: src/themes/rofi.rasi
 
 - shell:
   - [git submodule update --init --recursive, Installing submodules]
