@@ -13,6 +13,10 @@ if [ -d "$HOME/.local/bin" ]; then
     export PATH="$HOME/.local/bin:$PATH";
 fi
 
+# Activate color output for applications that respect the LS_COLORS environment variable
+# See https://www.gnu.org/software/coreutils/manual/html_node/dircolors-invocation.html
+test -r "$HOME/.dir_colors" && eval "$(dircolors ~/.dir_colors)"
+
 # Load shell dotfiles
 for FILE in "$HOME"/.bash/*.bash "$HOME"/.bash/{completions,functions}/*.bash; do
     [ -r "$FILE" ] && [ -f "$FILE" ] && source "$FILE";

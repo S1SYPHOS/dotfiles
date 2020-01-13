@@ -14,14 +14,14 @@ alias .....="cd ../../../.."
 alias cd..="cd .."
 
 # Listing files
-alias l="ls -CF"
-alias ll="ls -alF"
-alias la="ls -A"
+alias l="ls -CF --color"
+alias la="ls -A --color"
+alias ll="ls -alF --color"
 
 # Replace previous aliases in case `exa` is installed
 # See https://the.exa.website
 if type exa >/dev/null 2>&1; then
-    alias l="exa --git --color=automatic"
+    alias l="ls"
     alias ls="exa --git --color=automatic"
     alias ll="exa --all --long --git --color=automatic"
     alias la="exa --all --binary --group --header --long --git --color=automatic"

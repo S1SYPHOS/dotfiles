@@ -17,6 +17,7 @@
     ~/.bashrc: src/bashrc
     ~/.bash_logout: src/bash_logout
     ~/.bash_profile: src/bash_profile
+    ~/.dir_colors: src/themes/dir_colors
     ~/.mozilla/firefox/profiles.ini: src/firefox/profiles.ini
     ~/.mozilla/firefox/two-brain/user.js: src/firefox/user.js
 
