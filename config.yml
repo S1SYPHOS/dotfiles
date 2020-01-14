@@ -52,7 +52,8 @@
       glob: true
       path: src/bin/*
 
-    # Themes
+    # Themes & backgrounds
+    ~/.local/share/backgrounds: src/themes/backgrounds
     ~/.local/share/gedit/styles/nord.xml: src/themes/gedit.xml
     ~/.local/share/rofi/themes/nord.rasi: src/themes/rofi.rasi
 
