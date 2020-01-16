@@ -1,4 +1,4 @@
-#!/bin/bash
+#!/usr/bin/env bash
 
 ##################
 #  BASH PROFILE  #
@@ -16,6 +16,7 @@ export LC_ALL="en_US.UTF-8"
 
 # Make vim the default editor
 export EDITOR="vim" VISUAL="vim"
+
 
 ## PATH ##
 export PATH="/usr/local/bin:/usr/bin:/bin:/usr/local/sbin:/usr/sbin:/sbin"

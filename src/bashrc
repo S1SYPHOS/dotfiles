@@ -1,4 +1,4 @@
-#!/bin/bash
+#!/usr/bin/env bash
 
 #############
 #  BASH RC  #
@@ -14,11 +14,20 @@ if [ -d "$HOME/.local/bin" ]; then
 fi
 
 # Activate color output for applications that respect the LS_COLORS environment variable
-# See https://www.gnu.org/software/coreutils/manual/html_node/dircolors-invocation.html
-test -r "$HOME/.dir_colors" && eval "$(dircolors ~/.dir_colors)"
+DIRCOLORS=$XDG_CONFIG_HOME/dir_colors
+
+if [ -r "$DIRCOLORS" ]; then
+    eval "$(dircolors "$DIRCOLORS")"
+fi
+
+unset DIRCOLORS
+
+# For more information,
+# see https://www.gnu.org/software/coreutils/manual/html_node/dircolors-invocation.html
+##
 
 # Load shell dotfiles
-for FILE in "$HOME"/.bash/*.bash "$HOME"/.bash/{completions,functions}/*.bash; do
+for FILE in "$HOME"/.config/bash/*.bash; do
     [ -r "$FILE" ] && [ -f "$FILE" ] && source "$FILE";
 done
 

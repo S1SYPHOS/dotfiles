@@ -73,3 +73,12 @@ HISTIGNORE="&:[ ]*:exit:ls:bg:fg:history:clear"
 # Make new shells get the history lines from all previous
 # shells instead of the default "last window closed" history
 PROMPT_COMMAND="history -a; $PROMPT_COMMAND"
+
+
+## INCLUDE COMPLETIONS ##
+
+for COMPLETION in "$XDG_CONFIG_HOME"/bash/completions/*.bash; do
+    [ -r "$COMPLETION" ] && [ -f "$COMPLETION" ] && source "$COMPLETION";
+done
+
+unset COMPLETION

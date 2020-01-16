@@ -100,7 +100,7 @@ alias mk7z="7z a -r -t7z -m0=lzma2 -mx=9 -myx=9 -mqs=on -ms=on"
 
 ## LOAD CUSTOM ALIASES ##
 
-for ALIAS in "$HOME"/.bash/aliases/*.bash; do
+for ALIAS in "$XDG_CONFIG_HOME"/bash/aliases/*.bash; do
     [ -r "$ALIAS" ] && [ -f "$ALIAS" ] && source "$ALIAS";
 done
 
