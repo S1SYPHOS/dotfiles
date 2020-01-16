@@ -90,9 +90,6 @@ unset LOCAL_PATH
 export LESS="--ignore-case --RAW-CONTROL-CHARS --no-init"
 export MANPAGER='less -s -M +Gg'
 
-# Needed for gnome-terminal
-export GROFF_NO_SGR="1"
-
 man() {
 	env \
         LESS_TERMCAP_mb=$'\E[1;34m' \

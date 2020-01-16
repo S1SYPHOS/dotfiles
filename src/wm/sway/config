@@ -1,0 +1,82 @@
+############
+#  SWAYWM  #
+############
+
+## AUTOSTART ##
+
+# Redshift ("night light)"
+exec redshift
+
+# Notifications
+exec mako --anchor bottom-right
+# exec mako --background '#19081980' \
+#     --text-color '#ffeebe' --border-color '#ffeebe80' \
+#     --icons 1 --font 'envypn' --default-timeout 1000
+
+
+## VARIABLES ##
+
+# Logo key
+set $mod Mod4
+
+# Home row direction keys, like vim
+set $left h
+set $down j
+set $up k
+set $right l
+
+# Terminal emulator
+set $term kitty --single-instance
+
+# Browser
+set $browser MOZ_ENABLE_WAYLAND=1 firefox
+
+# Start file manager
+set $file_manager nautilus
+
+# Application launcher
+set $menu rofi -show drun | xargs swaymsg exec --
+# set $menu bemenu-run -b
+
+# Screenshot file
+set $screenshot_file $(xdg-user-dir PICTURES)/$('screenshot_'+ date +'%Y-%m-%d-%H%M%S.png')
+
+
+## DEFAULTS ##
+
+## Idle state
+# Lock screen after 300 seconds of inactivity
+# Turn off display after another 300 seconds
+# Turn screen back on when resumed
+# Lock screen before going to sleep
+
+exec swayidle -w \
+    timeout 300 'exec $HOME/.local/bin/screenlock' \
+    timeout 600 'swaymsg "output * dpms off"' \
+        resume 'swaymsg "output * dpms on"' \
+    before-sleep 'swaylock -f -c 000000'
+
+# Set status bar
+
+bar {
+    swaybar_command waybar
+}
+
+# For more information, see
+# https://github.com/Alexays/Waybar
+##
+
+# Define border width & window gaps
+default_border pixel 2
+gaps outer 15
+gaps inner 5
+
+
+## INCLUDES ##
+include ~/.config/sway/config.d/*
+
+
+# Fedora COPR repositories:
+# chriscowleyunix/sway
+# alebastr/waybar
+###
