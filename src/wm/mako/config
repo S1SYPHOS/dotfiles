@@ -1,0 +1,86 @@
+##########
+#  MAKO  #
+##########
+
+# Font family and size
+font=Fira Code Retina
+
+# Background color
+# background-color <color>
+
+# Text color
+# text-color <color>
+
+# Notification width
+width=450
+
+# Max notification height
+# height <px>
+
+# Margin values, comma separated
+# Up to four values, with the same meaning as in CSS
+# margin <px>[,<px>]
+
+# Padding values, comma separated
+# Up to four values, with the same meaning as in CSS
+padding=20, 10, 10, 20
+
+# Border size
+# border-size <px>
+
+# Border color
+# border-color <color>
+
+# Corner radius
+# border-radius <px>
+
+# Progress indicator color
+# progress-color <color>
+
+# Show icons in notifications
+# icons <0|1>
+
+# Icon search path, colon delimited
+# icon-path <path>[:<path>]
+
+# Set max size of icons
+# max-icon-size <px>
+
+# Enable/disable markup
+# markup <0|1>
+
+# Enable/disable application action execution
+# actions <0|1>
+
+# Format string
+# format <format>
+
+# Format string
+# hidden-format <format>
+
+# Max number of visible notifications
+# max-visible <n>
+
+# Sorts incoming notifications by time
+# and/or priority in ascending(+) or
+# descending(-) order
+# sort <sort_criteria>
+
+# Default timeout in milliseconds
+# default-timeout <timeout>
+
+# Enable/disable notification timeout
+# ignore-timeout <0|1>
+
+# Show notifications on this output
+# output <name>
+
+# Arrange notifications at this layer
+# layer <layer>
+
+# Position on output to put notifications
+anchor=bottom-right
+
+# For more information,
+# see https://github.com/emersion/mako
+##
