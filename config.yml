@@ -20,18 +20,10 @@
     ~/.mozilla/firefox/two-brain/user.js: src/firefox/user.js
     ~/.ssh/config: src/ssh/config
 
-<<<<<<< HEAD
-    # XDG compliance (+)
-    ~/.config/aria2/aria2.conf: src/aria2.conf
-    ~/.config/cURL/curlrc: src/curlrc
-    ~/.config/dir_colors: src/themes/dir_colors
-    ~/.config/neofetch/config.conf: src/neofetch.conf
-=======
     ## XDG COMPLIANCE (+)
     ~/.config/bash: src/bash
     ~/.config/cURL/curlrc: src/curlrc
     ~/.config/dir_colors: src/themes/dir_colors
->>>>>>> Cleaning up
     ~/.config/gem/gemrc: src/gemrc
     ~/.config/git: src/git
     ~/.config/gnupg: src/gnupg
@@ -42,14 +34,6 @@
     ~/.config/npm/npmrc: src/npmrc
     ~/.config/pip/pip.conf: src/pip.conf
     ~/.config/readline/inputrc: src/inputrc
-<<<<<<< HEAD
-<<<<<<< HEAD
-=======
-    ~/.config/rofi/config: src/rofi
-    ~/.config/sway/config: src/sway
->>>>>>> Basic setup
-=======
->>>>>>> Cleaning up
     ~/.config/tmux/tmux.conf: src/tmux.conf
     ~/.config/VSCodium/User/settings.json: src/vscodium.json
     ~/.config/vim/vimrc: src/vimrc
