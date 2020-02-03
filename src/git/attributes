@@ -1,0 +1,27 @@
+*     text=auto
+
+##
+# Enabling diff for binary files
+
+# Microsoft Office
+*.doc diff=doc
+*.xls diff=xls
+*.ppt diff=ppt
+
+# LibreOffice
+*.odt diff=odt
+*.ods diff=odt
+*.odp diff=odt
+
+# Portable Document Format (PDF)
+*.pdf diff=pdf
+
+# For more information,
+# see https://medium.com/@mbrehin/git-advanced-diff-odt-pdf-doc-xls-ppt-25afbf4f1105
+##
+
+##
+# Binaries
+
+*.png binary
+*.jpg binary

@@ -3,6 +3,11 @@
 #################
 
 [alias]
+    # Common
+    df = diff --color --color-words --abbrev
+    lg = log --graph --pretty=format:'%C(yellow)%h%Creset -%C(auto)%d%Creset %s %C(cyan)(%ar)%Creset %C(green)<%an>%Creset' --all
+    st = status -s
+
     # Git Workflow - by Phil Haack
     # For more information, see https://haacked.com/archive/2014/07/28/github-flow-aliases
     co = checkout
