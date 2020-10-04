@@ -1,0 +1,4 @@
+# GNUPG
+src/gnupg/pubring*
+src/gnupg/private*
+src/gnupg/trustdb.gpg
