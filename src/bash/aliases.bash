@@ -19,12 +19,18 @@ alias la="ls -A --color"
 alias ll="ls -alF --color"
 
 # Replace previous aliases in case `exa` is installed
-# See https://the.exa.website
+# See https://github.com/ogham/exa
 if type exa >/dev/null 2>&1; then
     alias l="ls"
     alias ls="exa --git --color=automatic"
-    alias ll="exa --all --long --git --color=automatic"
-    alias la="exa --all --binary --group --header --long --git --color=automatic"
+    alias ll="exa --git --color=automatic --all --long"
+    alias la="exa --git --color=automatic --all --long --binary --group --header"
+fi
+
+# Replace `cat` in case `bat` is installed
+# See https://github.com/sharkdp/bat
+if type bat >/dev/null 2>&1; then
+    alias cat="bat"
 fi
 
 # Shortcuts
@@ -63,6 +69,9 @@ alias ipnet="nmap -sn 192.168.178.*"
 
 # Show active internet connections
 alias connections="netstat -pan --inet"
+
+# Test internet connection (download / upload speed)
+alias speedtest="curl -s https://raw.githubusercontent.com/sivel/speedtest-cli/master/speedtest.py | python -"
 
 # Quick ranking filter
 alias rank="sort | uniq -c | sort -n"

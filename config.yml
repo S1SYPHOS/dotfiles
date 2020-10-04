@@ -22,6 +22,7 @@
 
     ## XDG COMPLIANCE (+)
     ~/.config/bash: src/bash
+    ~/.config/bat/config: src/bat
     ~/.config/cURL/curlrc: src/curlrc
     ~/.config/dir_colors: src/themes/dir_colors
     ~/.config/gem/gemrc: src/gemrc

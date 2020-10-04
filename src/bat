@@ -1,0 +1,8 @@
+# Set theme
+--theme="1337"
+
+# Show line numbers, Git changes & file header
+--style="numbers,changes,header"
+
+# Add mouse scrolling support in `less`
+--pager="less -FR"
