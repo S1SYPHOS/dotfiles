@@ -11,9 +11,12 @@
     helper = cache --timeout=3600
 
 [core]
-	editor = vim
-	whitespace = fix,-indent-with-non-tab,trailing-space,cr-at-eol
+    editor = vim
+    whitespace = fix,-indent-with-non-tab,trailing-space,cr-at-eol
     excludesfile = ~/.config/git/ignore
+    attributesfile = ~/.config/git/attributes
+    # Properly handle line endings
+    autocrlf = input
 
 [include]
     path = ~/.config/git/aliases
@@ -23,17 +26,17 @@
     ui = auto
     interactive = auto
     status = auto
-	diff = auto
-	branch = auto
+    diff = auto
+    branch = auto
 
 [commit]
-	verbose = true
+    verbose = true
 
 [push]
-	default = simple
+    default = simple
 
 [pull]
-	ff = only
+    ff = only
 
 [fetch]
     prune = true
@@ -42,4 +45,22 @@
     autosquash = true
 
 [merge]
-	tool = vimdiff
+    tool = vimdiff
+
+# See `attributes` file
+[diff "doc"]
+    textconv = catdoc
+    binary = true
+[diff "xls"]
+    textconv = xls2csv
+    binary = true
+[diff "ppt"]
+    textconv = catppt
+    binary = true
+[diff "odt"]
+    textconv = odt2txt
+    binary = true
+[diff "pdf"]
+  textconv = pdf2txt
+  binary = true
+  cachetextconv = true

@@ -1,0 +1,20 @@
+##############
+#  STARSHIP  #
+##############
+
+add_newline = false
+
+[directory]
+truncation_length = 8
+truncate_to_repo = true
+
+[php]
+disabled = true
+
+# [character]
+# success_symbol = "🚀"
+# error_symbol = "💥"
+
+# For more information,
+# see https://starship.rs/config
+##

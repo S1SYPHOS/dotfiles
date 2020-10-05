@@ -24,9 +24,7 @@ alias dotbot="bash ~/.dotfiles/install.sh"
 
 ## Roadmap:
 - [x] Move to [dotbot](https://git.io/dotbot)
-- [x] Add more dotfiles & configs (tmux, vim)
-- [x] ~~Add aliases for git-extra packages~~
-- [ ] move to i3/sway
+- [x] Move to ~~i3~~/sway
 
 
 ## Credits

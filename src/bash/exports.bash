@@ -69,6 +69,9 @@ LOCAL_PATH="$XDG_LIB_HOME/python/bin:$LOCAL_PATH"
 export COMPOSER_HOME=$XDG_LIB_HOME/php;
 LOCAL_PATH="$XDG_LIB_HOME/php/vendor/bin:$LOCAL_PATH"
 
+# Starship
+export STARSHIP_CONFIG=$XDG_CONFIG_HOME/starship/config.toml
+
 # NPM
 export NPM_CONFIG_USERCONFIG=$XDG_CONFIG_HOME/npm/npmrc
 export NPM_CONFIG_CACHE=$XDG_CACHE_HOME/npm
@@ -89,9 +92,6 @@ unset LOCAL_PATH
 
 export LESS="--ignore-case --RAW-CONTROL-CHARS --no-init"
 export MANPAGER='less -s -M +Gg'
-
-# Needed for gnome-terminal
-export GROFF_NO_SGR="1"
 
 man() {
 	env \

@@ -89,9 +89,10 @@ coin() {
 	fi
 }
 
+
 ## LOAD CUSTOM FUNCTIONS ##
 
-for FUNCTION in "$HOME"/.bash/functions/*.bash; do
+for FUNCTION in "$XDG_CONFIG_HOME"/bash/functions/*.bash; do
     [ -r "$FUNCTION" ] && [ -f "$FUNCTION" ] && source "$FUNCTION";
 done
 

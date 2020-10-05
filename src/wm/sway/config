@@ -1,0 +1,102 @@
+############
+#  SWAYWM  #
+############
+
+## AUTOSTART ##
+
+# PolicyKit agent
+exec /usr/bin/lxpolkit
+
+# Redshift ("night light)"
+exec redshift
+
+# Notifications
+exec mako
+
+
+## VARIABLES ##
+
+# Logo key
+set $mod Mod4
+
+# Home row direction keys, like vim
+set $left h
+set $down j
+set $up k
+set $right l
+
+# Terminal emulator
+set $term kitty --single-instance
+
+# Browser
+set $browser MOZ_ENABLE_WAYLAND=1 firefox
+
+# Start file manager
+set $file_manager nautilus
+
+# Application launcher
+set $menu rofi -show drun | xargs swaymsg exec --
+# set $menu bemenu-run -b
+
+# Screenshot file
+set $screenshot_file $(xdg-user-dir PICTURES)/$('screenshot_'+ date +'%Y-%m-%d-%H%M%S.png')
+
+# Borders & gaps
+set $border_width 2
+set $smart_borders off
+
+set $gaps_outer 10
+set $gaps_inner 15
+set $smart_gaps on
+
+
+## DEFAULTS ##
+
+## Idle state
+# Lock screen after 300 seconds of inactivity
+# Turn off display after another 300 seconds
+# Turn screen back on when resumed
+# Lock screen before going to sleep
+
+# exec swayidle -w \
+#     timeout 300 'exec $HOME/.local/bin/screenlock' \
+#     timeout 600 'swaymsg "output * dpms off"' \
+#         resume 'swaymsg "output * dpms on"' \
+#     before-sleep 'exec $HOME/.local/bin/screenlock'
+
+# Set status bar
+bar {
+    swaybar_command waybar
+}
+
+# For more information, see
+# https://github.com/Alexays/Waybar
+##
+
+# Sets default border style for new tiled windows to pixel
+default_border pixel $border_width
+
+# Sets default amount pixels of inner or outer gap, where the inner affects
+# spacing around each view and outer affects the spacing around each workspace
+gaps outer $gaps_outer
+gaps inner $gaps_inner
+
+# If smart_borders are on, borders will only be enabled if the workspace has
+# more than one visible child
+# If smart_borders is set to no_gaps, borders will only be enabled if the
+# workspace has more than one visible child and gaps equal to zero
+smart_borders $smart_borders
+
+# If smart_gaps are on gaps will only be enabled if a workspace has more than
+# one child
+smart_gaps $smart_gaps
+
+
+## INCLUDES ##
+include ~/.config/sway/config.d/*
+
+
+# Fedora COPR repositories:
+# chriscowleyunix/sway
+# alebastr/waybar
+###

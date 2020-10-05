@@ -1,4 +1,4 @@
-#!/bin/bash
+#!/usr/bin/env bash
 
 #############
 #  BASH RC  #
@@ -8,18 +8,48 @@
 # Personal environment variables and startup programs should go into ~/.bash_profile.
 # Personal aliases and functions should go into ~/.bashrc
 
-# Add `~/.local/lib` to `$PATH`
+## PATH ##
+export PATH="/usr/local/bin:/usr/bin:/bin:/usr/local/sbin:/usr/sbin:/sbin"
+
+# Add `~/.local/bin` to `$PATH`
 if [ -d "$HOME/.local/bin" ]; then
     export PATH="$HOME/.local/bin:$PATH";
 fi
 
+# Add `~/.cargo/bin` to `$PATH`
+if [ -d "$HOME/.cargo/bin" ]; then
+    export PATH="$HOME/.cargo/bin:$PATH";
+fi
+
+
+## LSCOLORS ##
+
 # Activate color output for applications that respect the LS_COLORS environment variable
-# See https://www.gnu.org/software/coreutils/manual/html_node/dircolors-invocation.html
-test -r "$HOME/.dir_colors" && eval "$(dircolors ~/.dir_colors)"
+if [ -r "$XDG_CONFIG_HOME/dir_colors" ]; then
+    eval "$(dircolors "$XDG_CONFIG_HOME/dir_colors")"
+fi
+
+# For more information,
+# see https://www.gnu.org/software/coreutils/manual/html_node/dircolors-invocation.html
+##
+
+# TODO: Create `vivid` Nord theme
+# DISABLE_LS_COLORS=true
+# export LS_COLORS="$(vivid generate jellybeans)"
 
 # Load shell dotfiles
-for FILE in "$HOME"/.bash/*.bash "$HOME"/.bash/{completions,functions}/*.bash; do
+for FILE in "$HOME"/.config/bash/*.bash; do
     [ -r "$FILE" ] && [ -f "$FILE" ] && source "$FILE";
 done
 
 unset FILE
+
+
+## PROMPT ##
+
+# Load starship prompt
+eval "$(starship init bash)"
+
+# For more information,
+# see https://github.com/starship/starship
+##
