@@ -17,10 +17,11 @@ export LC_ALL="en_US.UTF-8"
 # Make vim the default editor
 export EDITOR="vim" VISUAL="vim"
 
+# Make fontconfig work (?)
+export FONTCONFIG_PATH='/etc/fonts'
+export FONTCONFIG_FILE='fonts.config'
 
-## PATH ##
-export PATH="/usr/local/bin:/usr/bin:/bin:/usr/local/sbin:/usr/sbin:/sbin"
-
+## LOAD BASHRC ##
 if [ -f "$HOME"/.bashrc ]; then
     source ~/.bashrc
 fi
