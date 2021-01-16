@@ -30,7 +30,7 @@
     ~/.config/gnupg: src/gnupg
     ~/.config/htop/htoprc: src/htoprc
     ~/.config/keepassxc/keepassxc.ini: src/keepassxc.ini
-    ~/.config/kitty/kitty.conf: src/kitty.conf
+    ~/.config/kitty: src/kitty
     ~/.config/neofetch/config.conf: src/neofetch.conf
     ~/.config/npm/npmrc: src/npmrc
     ~/.config/pip/pip.conf: src/pip.conf
