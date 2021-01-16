@@ -4,7 +4,18 @@
 #  BASH EXPORTS  #
 ##################
 
-## GENERAL SETTINGS ##
+## ENVIRONMENT ##
+
+# Prefer US English and use UTF-8
+export LANG="en_US.UTF-8"
+export LC_ALL="en_US.UTF-8"
+
+# Make vim the default editor
+export EDITOR="vim" VISUAL="vim"
+
+# Make fontconfig work (?)
+export FONTCONFIG_PATH='/etc/fonts'
+export FONTCONFIG_FILE='fonts.config'
 
 # Make Python use UTF-8 encoding for stdin, stdout & stderr output
 export PYTHONIOENCODING="UTF-8"
@@ -30,6 +41,7 @@ if [ ! -w "${XDG_RUNTIME_DIR:="/run/user/$UID"}" ]; then
     echo "\$XDG_RUNTIME_DIR ($XDG_RUNTIME_DIR) not writable. Setting to /tmp." >&2
     XDG_RUNTIME_DIR=/tmp
 fi
+
 export XDG_RUNTIME_DIR
 
 # For more information, see
@@ -39,8 +51,6 @@ export XDG_RUNTIME_DIR
 
 
 ## FORCE XDG COMPLIANCE ##
-
-LOCAL_PATH=""
 
 # Bash / less history file
 mkdir -p "$XDG_DATA_HOME"/bash
@@ -63,11 +73,9 @@ export WGETRC=$XDG_CONFIG_HOME/wget/wgetrc
 
 # Python
 export PYTHONUSERBASE=$XDG_LIB_HOME/python;
-LOCAL_PATH="$XDG_LIB_HOME/python/bin:$LOCAL_PATH"
 
 # Composer
 export COMPOSER_HOME=$XDG_LIB_HOME/php;
-LOCAL_PATH="$XDG_LIB_HOME/php/vendor/bin:$LOCAL_PATH"
 
 # Starship
 export STARSHIP_CONFIG=$XDG_CONFIG_HOME/starship/config.toml
@@ -76,31 +84,55 @@ export STARSHIP_CONFIG=$XDG_CONFIG_HOME/starship/config.toml
 export NPM_CONFIG_USERCONFIG=$XDG_CONFIG_HOME/npm/npmrc
 export NPM_CONFIG_CACHE=$XDG_CACHE_HOME/npm
 export NPM_CONFIG_TMP=$XDG_RUNTIME_DIR/npm
-LOCAL_PATH="$XDG_LIB_HOME/npm/bin:$LOCAL_PATH"
 
 # RubyGem
 export GEM_HOME=$XDG_DATA_HOME/gem
 export GEMRC=$XDG_CONFIG_HOME/gem/gemrc;
 export GEM_SPEC_CACHE=$XDG_CACHE_HOME/gem
+
+# Rust
+export CARGO_HOME=$XDG_LIB_HOME/rust
+
+
+## BUILD PATH ##
+
+# System path
+LOCAL_PATH="/usr/local/bin:/usr/bin:/bin:/usr/local/sbin:/usr/sbin:/sbin"
+
+# Language-specific binaries / scripts
 LOCAL_PATH="$XDG_LIB_HOME/ruby:$LOCAL_PATH"
+LOCAL_PATH="$XDG_LIB_HOME/php/vendor/bin:$LOCAL_PATH"
+LOCAL_PATH="$XDG_LIB_HOME/npm/bin:$LOCAL_PATH"
+LOCAL_PATH="$XDG_LIB_HOME/python/bin:$LOCAL_PATH"
+LOCAL_PATH=$XDG_LIB_HOME/rust/bin:$LOCAL_PATH
+
+# Language-agnostic binaries / scripts
+LOCAL_PATH="$XDG_BIN_HOME:$LOCAL_PATH"
 
 # Adding collected local paths to $PATH
-export PATH="$LOCAL_PATH$PATH"
+export PATH=$LOCAL_PATH
+
 unset LOCAL_PATH
+
 
 ## IMPROVED MANUAL PAGES ##
 
 export LESS="--ignore-case --RAW-CONTROL-CHARS --no-init"
-export MANPAGER='less -s -M +Gg'
 
-man() {
-	env \
-        LESS_TERMCAP_mb=$'\E[1;34m' \
-        LESS_TERMCAP_md=$'\E[1;34m' \
-        LESS_TERMCAP_me=$'\E[0m' \
-        LESS_TERMCAP_so=$'\E[01;35m' \
-        LESS_TERMCAP_se=$'\E[0m' \
-        LESS_TERMCAP_us=$'\E[1;32m' \
-        LESS_TERMCAP_ue=$'\E[0m' \
-	    man "$@"
-}
+if command -v nvim &> /dev/null; then
+    export MANPAGER='nvim +Man!'
+else
+    export MANPAGER='less -s -M +Gg'
+
+    man() {
+        env \
+            LESS_TERMCAP_mb=$'\E[1;34m' \
+            LESS_TERMCAP_md=$'\E[1;34m' \
+            LESS_TERMCAP_me=$'\E[0m' \
+            LESS_TERMCAP_so=$'\E[01;35m' \
+            LESS_TERMCAP_se=$'\E[0m' \
+            LESS_TERMCAP_us=$'\E[1;32m' \
+            LESS_TERMCAP_ue=$'\E[0m' \
+            man "$@"
+    }
+fi

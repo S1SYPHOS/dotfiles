@@ -8,23 +8,11 @@
 # Personal environment variables and startup programs should go into ~/.bash_profile.
 # Personal aliases and functions should go into ~/.bashrc
 
-## ENVIRONMENT VARIABLES ##
-
-# Prefer US English and use UTF-8
-export LANG="en_US.UTF-8"
-export LC_ALL="en_US.UTF-8"
-
-# Make vim the default editor
-export EDITOR="vim" VISUAL="vim"
-
-# Make fontconfig work (?)
-export FONTCONFIG_PATH='/etc/fonts'
-export FONTCONFIG_FILE='fonts.config'
-
-## LOAD BASHRC ##
+## LOAD BASH RC ##
 if [ -f "$HOME"/.bashrc ]; then
     source ~/.bashrc
 fi
 
-# For more information, see https://tiswww.case.edu/php/chet/bash/bashref.html#Bash-Startup-Files
+# For more information,
+# see https://tiswww.case.edu/php/chet/bash/bashref.html#Bash-Startup-Files
 ##
