@@ -4,46 +4,6 @@
 #  BASH ALIASES  #
 ##################
 
-## NAVIGATION ##
-
-# many dots, so levels, wow
-alias ..="cd .."
-alias ...="cd ../.."
-alias ....="cd ../../.."
-alias .....="cd ../../../.."
-alias cd..="cd .."
-
-# Listing files
-alias l="ls -CF --color"
-alias la="ls -A --color"
-alias ll="ls -alF --color"
-
-# Replace previous aliases in case `exa` is installed
-# See https://github.com/ogham/exa
-if type exa >/dev/null 2>&1; then
-    alias l="ls"
-    alias ls="exa --git --color=automatic"
-    alias ll="exa --git --color=automatic --all --long"
-    alias la="exa --git --color=automatic --all --long --binary --group --header"
-fi
-
-# Replace `cat` in case `bat` is installed
-# See https://github.com/sharkdp/bat
-if type bat >/dev/null 2>&1; then
-    alias cat="bat"
-fi
-
-# Shortcuts
-alias b="firefox"
-alias c="clear"
-alias d="cd ~/Downloads"
-alias g="git"
-alias h="history"
-alias p="cd ~/Documents/projects"
-alias w="cd ~/Documents/work"
-alias :q="exit"
-
-
 ## BASICS ##
 
 # Allow aliases to be with sudo
@@ -60,40 +20,86 @@ alias df="df -kTh"
 alias dd="dd status=progress"
 alias free="free -h --giga"
 
-# Show processes
-alias psa="ps auxf"
-alias psg="ps aux | grep -v grep | grep -i -e VSZ -e"
+# Listing files
+alias l="ls -CF --color"
+alias la="ls -A --color"
+alias ll="ls -alF --color"
 
-# Show active IP addresses in home network
-alias ipnet="nmap -sn 192.168.178.*"
+# Replace previous aliases in case `exa` is installed
+# See https://github.com/ogham/exa
+if command -v exa &> /dev/null; then
+    alias l="ls"
+    alias ls="exa --git --color=automatic"
+    alias ll="exa --git --color=automatic --all --long"
+    alias la="exa --git --color=automatic --all --long --binary --group --header"
+fi
 
-# Show active internet connections
-alias connections="netstat -pan --inet"
-
-# Test internet connection (download / upload speed)
-alias speedtest="curl -s https://raw.githubusercontent.com/sivel/speedtest-cli/master/speedtest.py | python -"
-
-# Quick ranking filter
-alias rank="sort | uniq -c | sort -n"
+# Replace `cat` in case `bat` is installed
+# See https://github.com/sharkdp/bat
+if command -v bat &> /dev/null; then
+    alias cat="bat"
+fi
 
 
-## MISCELLANEOUS ##
+## NAVIGATION ##
 
-# Lock the screen (when going AFK) - For locking the screen, use "SUPER+L"
-alias afk="sudo systemctl suspend"
+# Many dots, so levels, wow
+alias ..="cd .."
+alias ...="cd ../.."
+alias ....="cd ../../.."
+alias .....="cd ../../../.."
+alias cd..="cd .."
+
+# Shortcuts
+alias c="clear"
+alias g="git"
+alias h="history"
+alias p="cd ~/Documents/projects"
+alias :q="exit"
+
+
+## USEFUL ##
+
+# Update symlinks of dotfiles
+alias dotbot="bash ~/.dotfiles/install.sh"
 
 # Print each PATH entry on a separate line
 alias path='echo -e ${PATH//:/\\n}'
 
-# Thinking of http://xkcd.com/530/ - Linux version @mathiasbynens alias
-alias stfu="amixer -q sset Master 0%"
-alias pumpitup="amixer -q sset Master 100%"
+# Quick ranking filter
+alias rank="sort | uniq -c | sort -n"
+
+# TODO: mktar, mkzip, ..
+alias mk7z="7z a -r -t7z -m0=lzma2 -mx=9 -myx=9 -mqs=on -ms=on"
+
+# Copy & paste
+alias pbcopy='xclip -selection clipboard' && \
+alias pbpaste='xclip -selection clipboard -o'
+
+# Copy public key to clipboard
+alias pubkey="pbcopy ~/.ssh/id_rsa.pub | echo '=> Public key copied to pasteboard.'"
 
 
 ## SOFTWARE ##
 
-alias etcher="balena-etcher-electron"
-alias dotbot="bash ~/.dotfiles/install.sh"
+# Beat it
+if command -v podman &> /dev/null; then
+    alias docker="podman"
+fi
+
+# Replace SSH
+# (1) .. with mosh (if present)
+if command -v mosh &> /dev/null; then
+    alias ssh="mosh"
+# (2) .. with SSH kitten (if using Kitty)
+elif [ "$TERM" = "xterm-kitty" ]; then
+    alias ssh="kitty +kitten ssh"
+fi
+
+# Replace ps with procs (if present)
+if command -v procs &> /dev/null; then
+    alias ps="procs"
+fi
 
 
 ## HARDWARE ##
@@ -103,14 +109,12 @@ alias cpu="dmidecode -t 4 | less"
 alias memory="dmidecode -t 17 | less"
 alias cdrom="wodim --devices"
 
-# TODO: mktar, mkzip, ..
-alias mk7z="7z a -r -t7z -m0=lzma2 -mx=9 -myx=9 -mqs=on -ms=on"
 
+## JUST FOR FUN ##
 
-## LOAD CUSTOM ALIASES ##
+# Lock the screen (when going AFK) - For locking the screen, use "SUPER+L"
+alias afk="sudo systemctl suspend"
 
-for ALIAS in "$XDG_CONFIG_HOME"/bash/aliases/*.bash; do
-    [ -r "$ALIAS" ] && [ -f "$ALIAS" ] && source "$ALIAS";
-done
-
-unset ALIAS
+# Thinking of http://xkcd.com/530/ - Linux version @mathiasbynens alias
+alias stfu="amixer -q sset Master 0%"
+alias pumpitup="amixer -q sset Master 100%"

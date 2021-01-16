@@ -77,6 +77,11 @@ PROMPT_COMMAND="history -a; $PROMPT_COMMAND"
 
 ## INCLUDE COMPLETIONS ##
 
+# Load the system's Bash completion modules
+if [ -f /etc/bash_completion ]; then
+  source /etc/bash_completion
+fi
+
 for COMPLETION in "$XDG_CONFIG_HOME"/bash/completions/*.bash; do
     [ -r "$COMPLETION" ] && [ -f "$COMPLETION" ] && source "$COMPLETION";
 done
