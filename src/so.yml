@@ -1,0 +1,15 @@
+########
+#  SO  #
+########
+
+---
+api_key: ~
+limit: 20
+lucky: false
+sites:
+  - stackoverflow
+search_engine: duckduckgo
+
+# For more information,
+# see https://github.com/samtay/so
+##

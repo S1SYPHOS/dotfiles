@@ -35,6 +35,7 @@
     ~/.config/npm/npmrc: src/npmrc
     ~/.config/pip/pip.conf: src/pip.conf
     ~/.config/readline/inputrc: src/inputrc
+    ~/.config/so/config.yml: src/so.yml
     ~/.config/starship/config.toml: src/starship.toml
     ~/.config/tmux/tmux.conf: src/tmux.conf
     ~/.config/VSCodium/User/settings.json: src/vscodium.json
