@@ -1,0 +1,16 @@
+#!/bin/bash
+
+# Mount VDI disk images
+# $1 = disk image
+# $2 = mount path
+
+if ! command -v qemu-kvm &> /dev/null; then
+    echo "qemu-kvm must be installed"; exit
+fi
+
+sudo modprobe nbd
+sudo qemu-nbd -c /dev/nbd0 "$1"
+
+if [ -n "$2" ]; then
+    sudo mount /dev/nbd0p1 "$2"
+fi
