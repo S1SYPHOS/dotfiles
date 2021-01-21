@@ -1,6 +1,6 @@
-############
-#  NPM RC  #
-############
+#########
+#  NPM  #
+#########
 
 # Global Defaults
 prefix = /home/two-brain/.local/lib/npm

@@ -1,4 +1,8 @@
-*     text=auto
+####################
+#  GIT ATTRIBUTES  #
+####################
+
+* text=auto
 
 ##
 # Enabling diff for binary files

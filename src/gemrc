@@ -1,6 +1,6 @@
-############
-#  GEM RC  #
-############
+##############
+#  RUBY GEM  #
+##############
 
 :update_sources: true
 :backtrace: false
