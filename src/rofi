@@ -1,2 +1,0 @@
-rofi.modi: run,drun,window,ssh
-rofi.theme: ~/.local/share/rofi/themes/nord.rasi
